@@ -17,6 +17,22 @@ document.addEventListener('click' , function(e){
     }
 })
 
+document.addEventListener('keypress' , function(e){
+    if(e.target==newData[0]){
+        
+    }
+})
+
+document.addEventListener('keyup' , function(e){
+    if(e.target==newData[0]){
+        validateUserAge();
+    }
+
+    if(e.target==newData[1]){
+        validateUserEmail();
+    }
+})
+
 
 
 function createAccount(){
@@ -36,3 +52,62 @@ function createAccount(){
     registerSuccessSection.style.display = 'block';
 }
 
+
+
+
+// This Section is to verify user's data and get data from user
+
+
+function getData(){
+
+}
+
+function validateUserAge(){
+    var regex = /^(1[6-9]|[2-9][0-9])$/g;
+    if(regex.test(newData[0].value)==true){
+        newData[0].classList.remove('is-invalid');
+        newData[0].classList.add('is-valid');
+        return true;
+    }
+    
+    else{
+        newData[0].classList.add('is-invalid');
+        return false;
+    }
+}
+
+function validateUserEmail(){
+    var regex =/^([A_Z]|[a-z]|[0-9]){1,}@[A-Z a-z 0-9]{1,7}\.[a-z]{3}$/g;
+    if(regex.test(newData[1].value)==true){
+        newData[1].classList.remove('is-invalid');
+        newData[1].classList.add('is-valid');
+        return true;
+    }
+
+    else{
+        newData[1].classList.add('is-invalid');
+        return false;
+    }
+}
+
+function validateName(x){
+    var regex = /^[A-Z][a-z]{2,}/g;
+    if(regex.test(x)==true){
+        return true;
+    }
+
+    else{
+        return false;
+    }
+}
+
+function checkPassword(){
+    var regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$/g ;
+    if(regex.test(newData[3])==true){
+        return true;
+    }
+
+    else{
+        return false;
+    }
+}
