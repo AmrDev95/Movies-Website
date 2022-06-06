@@ -1,0 +1,204 @@
+:root{
+    --theme-color:rgb(229,9,20);
+}
+
+.text-theme{
+    color: var(--theme-color) !important;
+}
+
+.bg-theme{
+    background-color: var(--theme-color) !important;
+}
+
+.bg-grad-red{
+    background: rgb(90,35,32);
+    background: linear-gradient(90deg, rgba(90,35,32,1) 0%, rgba(90,35,32,0) 100%);
+}
+
+.border-logo{
+    border-left: 5px var(--theme-color) solid;
+}
+
+.font-main{
+    font-size:80px;
+    font-weight: 700;
+}
+
+.w-60{
+    width: 60%;
+}
+
+.fs-10{
+    font-size: 50px;
+}
+
+.w-40{
+    width:40%;
+}
+
+.w-85{
+    width:80%;
+}
+
+.z-99{
+    z-index:999;
+}
+
+.carousel-bg1 , .carousel-bg2 , .carousel-bg3{
+    background-size: cover;
+    background-position: center center;
+}
+
+.carousel-bg1{
+    background-image: url(../images/Carousel1.jpg);
+}
+
+.carousel-bg2{
+    background-image: url(../images/Carousel2.jpg);
+    
+}
+
+.carousel-bg3{
+    background-image: url(../images/Carousel3.jpg);
+}
+
+.spacing{
+    letter-spacing: 5px;
+}
+
+.border-trailer{
+    border: 2px solid white;
+    width:80px;
+    height:80px;
+    border-radius: 40px;
+}
+
+.carousel-effect-dark{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width:100%;
+    height:100%;
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,0.9363095580028886) 0%, rgba(0,0,0,0.4321078773306197) 48%, rgba(0,0,0,0.21362048237263653) 100%);
+}
+
+.navbar{
+    top: 0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.logo{
+    width:170px;
+}
+
+.translate-y{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50% , -50%);
+    z-index: 999;
+}
+
+.checked{
+    color: var(--theme-color);
+}
+
+#loginSection{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left:0;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed !important;
+    z-index: 99999999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#closeLogin{
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+}
+
+.alert{
+    display:none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width : 260px) and (max-width : 575px) {
+    .GP-div{
+        width:190px !important;
+    }
+
+    .font-main{
+        font-size: 35px;
+    } 
+
+    .login-form{
+        width: 75% !important;
+    }
+
+    .logo{
+        width: 120px;
+    }
+}
+
+@media screen and (min-width : 576px) and (max-width : 767px) {
+    .font-main{
+        font-size: 45px;
+    }  
+}
+
+@media screen and (min-width : 768px) and (max-width : 991px) {
+    .font-main{
+        font-size: 55px;
+    } 
+}
+
+@media screen and (min-width : 992px) and (max-width : 1199px) {
+    .font-main{
+        font-size: 65px;
+    } 
+}
+
+@media screen and (min-width : 1200px) and (max-width : 1399px) {
+       
+}
+
+@media screen and (min-width : 1400px) {
+      
+}

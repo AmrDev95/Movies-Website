@@ -1,0 +1,60 @@
+.signup-bg{
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.h-90{
+    height: 90%;
+}
+
+.w-image{
+    width:170px;
+}
+
+.scroll{
+    overflow-y: scroll;
+}
+
+.bg-blur{
+    background-color: rgba(0, 0, 0, 0.8);
+    filter: blur(8px);
+    z-index: 0;
+}
+
+.form-bg{
+    background-color: rgb(17,17,17) !important;
+}
+
+.form-control:focus{
+    box-shadow: none !important;
+}
+
+.displayHidden{
+    display: block !important;
+}
+
+#registerSuccessSection{
+    display:none;
+}
+
+#registerFailed{
+    display: none;
+}
+
+
+
+
+
+
+@media screen and (min-width: 720px) and (max-width : 1139px) {
+    .responsive{
+        width:75% !important;
+    }
+}
+
+@media screen and (min-width : 200px) and (max-width : 719px) {
+    .responsive{
+        width: 90% !important;
+    }    
+}
