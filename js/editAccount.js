@@ -11,18 +11,38 @@ var oldAge = document.getElementById('oldAge');
 var oldEmail = document.getElementById('oldEmail');
 var oldName = document.getElementById('oldName');
 var oldlastName = document.getElementById('oldlastName');
+var updateFailed = document.getElementById('updateFailed');
+var updateSuccess = document.getElementById('updateSuccess');
+var deleteAccount = document.getElementById('deleteAccount');
 
 var Y = JSON.parse(localStorage.getItem('signedUser'));
 
-if(JSON.parse(localStorage.getItem('userToken')) == false){
+
+
+if(JSON.parse(localStorage.getItem('userToken')) == false || JSON.parse(localStorage.getItem('userToken')) ==null){
     noLogin.classList.remove('d-none');
     editUserData.classList.add('d-none');
 }
 
-oldAge.innerHTML = Y.userAge;
-oldEmail.innerHTML = Y.userEmail;
-oldName.innerHTML = Y.userFirstName;
-oldlastName.innerHTML = Y.userLastName;
+else{
+    oldAge.innerHTML = Y.userAge;
+    oldEmail.innerHTML = Y.userEmail;
+    oldName.innerHTML = Y.userFirstName;
+    oldlastName.innerHTML = Y.userLastName;
+
+userAgeEdit.value = Y.userAge;
+userEmailEdit.value = Y.userEmail;
+firstNameEdit.value = Y.userFirstName;
+lastNameEdit.value = Y.userLastName;
+passwordEdit.value = Y.userPassword;
+
+validateUserAge();
+validateName(firstNameEdit);
+validateName(lastNameEdit);
+validateUserEmail();
+validatePassword();
+
+
 
 
 
@@ -54,14 +74,61 @@ document.addEventListener('keyup' , function(e){
 
 
 updateButton.addEventListener('click' , function(){
+        validateUserAge();
+        validateName(firstNameEdit);
+        validateName(lastNameEdit);
+        validateUserEmail();
+        validatePassword();
+        passwordIdentical();
 
         if(searchExisting()==true){
-            updateFailed.innerHTML = 'User Already exists Please login';
-            updateFailed.classList.remove('d-none');    
+            updateFailed.innerHTML = 'this user is already taken';
+            updateFailed.classList.remove('d-none');  
+            updateSuccess.classList.add('d-none');  
         }
         
         else if(validateUserAge() && validateUserEmail() && validateName(firstNameEdit) && validateName(lastNameEdit) && validatePassword() && passwordIdentical()){
+            var Y = JSON.parse(localStorage.getItem('signedUser'));
+            Y.userAge = userAgeEdit.value;
+            Y.userEmail = userEmailEdit.value;
+            Y.userFirstName = firstNameEdit.value;
+            Y.userLastName = lastNameEdit.value;
+            Y.userPassword = passwordEdit.value;
+            localStorage.setItem('signedUser' , JSON.stringify(Y));
+
+            oldAge.innerHTML = Y.userAge;
+            oldEmail.innerHTML = Y.userEmail;
+            oldName.innerHTML = Y.userFirstName;
+            oldlastName.innerHTML = Y.userLastName;
+
+            var updateDatabase = JSON.parse(localStorage.getItem('storedUsers'));
+            updateDatabase[Number(localStorage.getItem('userIndex'))] = Y;
+
+
+            localStorage.setItem('storedUsers' , JSON.stringify(updateDatabase));
+            
+            updateFailed.classList.add('d-none');
+            updateSuccess.innerHTML = 'Profile Updated';
+            updateSuccess.classList.remove('d-none')
         }
+
+        else{
+            updateFailed.innerHTML = 'Some Data is missing';
+            updateFailed.classList.remove('d-none');  
+            updateSuccess.classList.add('d-none'); 
+
+        }
+})
+
+deleteAccount.addEventListener('click' , function(){
+    var updateDatabase = JSON.parse(localStorage.getItem('storedUsers'));
+    updateDatabase.splice(Number(localStorage.getItem('userIndex')) , 1);
+    console.log(updateDatabase);
+    localStorage.setItem('storedUsers' , JSON.stringify(updateDatabase));
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userIndex');
+    localStorage.removeItem('signedUser');
+    window.location.href = "index.html";
 })
 
 
@@ -185,22 +252,4 @@ function searchExisting(){
         return false;
     }
 }
-
-function searchExisting(){
-    if(localStorage.getItem('storedUsers')==null){
-        return false;
-    }
-
-    else{
-        var checkMail = JSON.parse(localStorage.getItem('storedUsers'));
-        for(var i =0 ; i<checkMail.length ; i++){
-            if(checkMail[i].userEmail == newData[1].value){
-                return true;
-            }
-        }
-
-        return false;
-    }
 }
-
-
