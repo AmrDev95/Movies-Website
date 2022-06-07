@@ -1,0 +1,14 @@
+.edit-profile-home{
+    background-image: url(../images/bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.userPhoto{
+    width: 150px;
+    height: 150px;
+    font-size: 80px;
+    border-radius: 75px;
+    color: white;
+}

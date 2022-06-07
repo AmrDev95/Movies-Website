@@ -32,11 +32,11 @@ document.addEventListener('click' , function(e){
     }
 })
 
-document.addEventListener('keypress' , function(e){
-    if(e.target==newData[0]){
+// document.addEventListener('keypress' , function(e){
+//     if(e.target==newData[0]){
         
-    }
-})
+//     }
+// })
 
 document.addEventListener('keyup' , function(e){
     if(e.target==newData[0]){

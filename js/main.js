@@ -39,6 +39,7 @@ document.addEventListener('click' , function(e){
 
     if(e.target==signInButton){
         checkDatabase();
+        clearSignin();
     }
 
     if(e.target==signOut || e.target==signouticon){
@@ -71,4 +72,9 @@ function checkDatabase(){
             }
         }
     }
+}
+
+function clearSignin(){
+    inputEmail.value = "";
+    inputPassword.value = "";
 }
