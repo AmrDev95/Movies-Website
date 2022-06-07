@@ -54,7 +54,7 @@ document.addEventListener('keyup' , function(e){
 
 
 updateButton.addEventListener('click' , function(){
-    if(e.target == updateButton){
+
         if(searchExisting()==true){
             updateFailed.innerHTML = 'User Already exists Please login';
             updateFailed.classList.remove('d-none');    
@@ -62,7 +62,6 @@ updateButton.addEventListener('click' , function(){
         
         else if(validateUserAge() && validateUserEmail() && validateName(firstNameEdit) && validateName(lastNameEdit) && validatePassword() && passwordIdentical()){
         }
-    }
 })
 
 
@@ -178,7 +177,7 @@ function searchExisting(){
     else{
         var checkMail = JSON.parse(localStorage.getItem('storedUsers'));
         for(var i =0 ; i<checkMail.length ; i++){
-            if(checkMail[i].userEmail == newData[1].value){
+            if(checkMail[i].userEmail == userEmailEdit.value){
                 return true;
             }
         }
