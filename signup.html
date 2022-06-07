@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-xl-6">
                             <label class="form-label" for="">Password*</label>
-                            <input type="password" class="form-control mb-4 rounded-0 form-bg border-0 text-white" id="password" placeholder="Should contain uppercase, number, and special character">
+                            <input type="password" class="form-control mb-4 rounded-0 form-bg border-0 text-white" id="password" placeholder="Should contain uppercase, lowercase, number, and special character">
                         </div>
                         <div class="col-xl-6">
                             <label class="form-label" for="">Repeat Password*</label>
@@ -58,19 +58,19 @@
                 </div>
 
                 <div class="form-check my-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="premium" checked value="Premium User">
                     <label class="form-check-label text-white" for="flexRadioDefault1">
                       Premium User
                     </label>
                   </div>
                   <div class="form-check my-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="basic" value="Basic user">
                     <label class="form-check-label text-white" for="flexRadioDefault2">
                       Basic User
                     </label>
                   </div>
                   <div class="form-check mt-2 mb-5">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="free" value="Free User">
                     <label class="form-check-label text-white" for="flexRadioDefault2">
                       Free User
                     </label>
@@ -78,13 +78,13 @@
 
                 <h4 class="text-white mb-2">Select payment method</h4>
                 <div class="form-check mt-2 my-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2" checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" value="Pay by Visa" id="visa" checked>
                     <label class="form-check-label text-white" for="flexRadioDefault2">
                       Pay With Visa
                     </label>
                 </div>
                 <div class="form-check my-2">
-                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2" checked>
+                    <input class="form-check-input" type="radio" name="flexRadioDefault1" id="payPal" value="Pay by PayPal">
                     <label class="form-check-label text-white" for="flexRadioDefault2">
                       Pay by Paypal
                     </label>

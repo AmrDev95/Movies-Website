@@ -253,6 +253,7 @@
                         <button class=" ms-auto me-4 btn btn-danger bg-transparent border-0 text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
                         <button class="btn btn-danger bg-transparent mx-2 border-0 text-white" id="loginButton"><i class="fa-solid fa-user" id="loginIcon"></i></button>
                     </div>
+                    <p class="my-auto text-white d-none" id="welcomeUser">Lorem, ipsum.</p>
                   </div>
                 </div>
               </nav>
@@ -263,19 +264,24 @@
             <div class="w-50 bg-white p-4 rounded-3 position-relative login-form">
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
                       <div class="alert alert-danger mt-3" role="alert"></div>
                     </div>
                     <div class="mb-3">
                       <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
+                      <input type="password" class="form-control" id="inputPassword">
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
                     </div>
+                    <!-- Add Alert -->
+                    <div class="alert alert-danger" role="alert" id="alertBox">
+
+                      </div>
+
                     <div class="d-flex w-50">
-                        <button class="btn btn-danger">Login</button>
+                        <button class="btn btn-danger" id="signInButton">Login</button>
                         <button class="btn btn-danger ms-2" id="signupButton">Signup</button>
                     </div>
                     <i class="fa-solid fa-xmark p-4 position-absolute" id="closeLogin"></i>
