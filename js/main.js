@@ -8,11 +8,17 @@ var alertBox = document.getElementById('alertBox');
 var inputPassword = document.getElementById('inputPassword');
 var inputEmail = document.getElementById('inputEmail');
 var welcomeUser = document.getElementById('welcomeUser');
+var signOut = document.getElementById('signOut');
+var signouticon = document.getElementById('signouticon');
+var accountSettings = document.getElementById('accountSettings');
 
 if(JSON.parse(localStorage.getItem('userToken'))==true){
     loginButton.classList.add('d-none');
     welcomeUser.classList.remove('d-none');
-    welcomeUser.innerHTML = `welcome ${JSON.parse(localStorage.getItem('userName'))}`;
+    var signedIn = JSON.parse(localStorage.getItem('signedUser'));
+    welcomeUser.innerHTML = `welcome ${signedIn.userFirstName}`;
+    signOut.classList.remove('d-none');
+    accountSettings.classList.remove('d-none');
 }
 
 loginButton.addEventListener('click' , function(e){
@@ -34,6 +40,12 @@ document.addEventListener('click' , function(e){
     if(e.target==signInButton){
         checkDatabase();
     }
+
+    if(e.target==signOut || e.target==signouticon){
+        localStorage.setItem('userToken' , 'false');
+        window.location.href = "index.html";
+        console.log(e);
+    }
 })
 
 
@@ -48,7 +60,8 @@ function checkDatabase(){
         for(var i =0 ; i < x.length ; i++){
             if(x[i].userEmail ==inputEmail.value && x[i].userPassword == inputPassword.value){
                 localStorage.setItem('userToken' , 'true');
-                localStorage.setItem('userName' , JSON.stringify(x[i].userFirstName));
+                localStorage.setItem('signedUser' , JSON.stringify(x[i]));
+                localStorage.setItem('userIndex' , `${i}`);
                 window.location.href = "index.html";
             }
 

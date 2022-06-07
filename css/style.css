@@ -175,18 +175,69 @@
     .logo{
         width: 120px;
     }
+
+    #searchButton{
+        margin-left: 0 !important;
+    }
+
+    #signOut{
+        margin-left: 0 !important;
+    }
+
+    #navBar{
+        background-color: black !important;
+    }
+
+    #welcomeUser{
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
+    }
 }
 
 @media screen and (min-width : 576px) and (max-width : 767px) {
     .font-main{
         font-size: 45px;
-    }  
+    } 
+    
+    #searchButton{
+        margin-left: 0 !important;
+    }
+    
+    #signOut{
+        margin-left: 0 !important;
+    }
+
+    #navBar{
+        background-color: black !important;
+    }
+
+    #welcomeUser{
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
+    }
 }
 
 @media screen and (min-width : 768px) and (max-width : 991px) {
     .font-main{
         font-size: 55px;
     } 
+
+    #searchButton{
+        margin-left: 0 !important;
+    }
+
+    #signOut{
+        margin-left: 0 !important;
+    }
+
+    #navBar{
+        background-color: black !important;
+    }
+
+    #welcomeUser{
+        margin-top: 40px !important;
+        margin-bottom: 20px !important;
+    }
 }
 
 @media screen and (min-width : 992px) and (max-width : 1199px) {

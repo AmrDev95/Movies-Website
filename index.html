@@ -215,7 +215,7 @@
               <div class="carousel-effect-dark"></div>
 
               <!-- Adding Navbar to the home section -->
-              <nav class="navbar container-fluid navbar-expand-lg navbar-dark bg-blur position-absolute p-4 z-99">
+              <nav class="navbar container-fluid navbar-expand-lg navbar-dark bg-blur position-absolute p-4 z-99" id="navBar">
                 <div class="container">
                   <img src="images/logo.png" class="logo" alt="">
                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -235,25 +235,26 @@
                       <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Shop</a>
                       </li>
-                      <li class="nav-item dropdown">
+                      <li class="nav-item dropdown d-none" id="accountSettings">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Dropdown
+                          Account Settings
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                          <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                          <li><a class="dropdown-item" href="#">Check my list</a></li>
                           <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          <li><a class="dropdown-item" href="#">Watch on youtube</a></li>
                         </ul>
                       </li>
                     </ul>
 
                         
-                    <div class=" w-25 d-flex align-items-center">
-                        <button class=" ms-auto me-4 btn btn-danger bg-transparent border-0 text-white"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <div class="d-flex align-items-center">
+                        <button class=" ms-auto me-4 btn btn-danger bg-transparent border-0 text-white" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
                         <button class="btn btn-danger bg-transparent mx-2 border-0 text-white" id="loginButton"><i class="fa-solid fa-user" id="loginIcon"></i></button>
                     </div>
-                    <p class="my-auto text-white d-none" id="welcomeUser">Lorem, ipsum.</p>
+                    <p class="my-auto text-white d-none" id="welcomeUser"></p>
+                    <button class="btn bg-transparent text-white my-auto ms-2 d-none" id="signOut"><i class="fa-solid fa-arrow-right-from-bracket" id="signouticon"></i></button>
                   </div>
                 </div>
               </nav>
