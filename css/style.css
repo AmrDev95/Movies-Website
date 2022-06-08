@@ -188,7 +188,7 @@ body{
   .icon-div-movie:hover i{
       color: white !important;
   }
-  
+
 
   .icon-div-movie , .icon-div-small{
       background-color: white;
@@ -205,6 +205,11 @@ body{
       width:35px;
       height:35px;
       background-color: white;
+  }
+
+  .adjust-overview{
+    overflow: hidden;
+    height: 120px;
   }
 
 
