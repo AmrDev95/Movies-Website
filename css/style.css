@@ -1,3 +1,7 @@
+body{
+    background-color: black;
+}
+
 :root{
     --theme-color:rgb(229,9,20);
 }
@@ -148,7 +152,60 @@
     background: #555;
   }
 
+  .effect-dark{
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      top: 0;
+      left: 0;
+      position: absolute;
+      opacity: 0;
+      transition: all 0.5s;
+      transition-delay: 0.3s;
+  }
 
+  .hover-cover{
+      transition: all 0.7s ;   
+  }
+
+  .hover-cover:hover .effect-dark{
+    opacity: 1;
+    border-left: 7px solid var(--theme-color);
+  }
+
+  .hover-cover:hover{
+      transform: scale(1.1);
+  }
+
+  .icon-div-movie{
+      transition: all 0.7s;
+  }
+
+  .icon-div-movie:hover{
+      background-color: var(--theme-color);
+  }
+
+  .icon-div-movie:hover i{
+      color: white !important;
+  }
+  
+
+  .icon-div-movie , .icon-div-small{
+      background-color: white;
+      border-radius: 50%;
+  }
+
+  .icon-div-movie{
+    width:50px;
+    height:50px;
+    border: 6px solid grey;
+  }
+
+  .icon-div-small{
+      width:35px;
+      height:35px;
+      background-color: white;
+  }
 
 
 

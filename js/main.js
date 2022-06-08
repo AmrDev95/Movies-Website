@@ -12,6 +12,23 @@ var signOut = document.getElementById('signOut');
 var signouticon = document.getElementById('signouticon');
 var accountSettings = document.getElementById('accountSettings');
 
+
+
+
+async function getMovies(){
+    var x = await fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=bf369bb0e503052f7e688dc460012ad0');
+    var myMovies = await x.json();
+    console.log(myMovies);
+}
+
+getMovies();
+
+
+
+
+
+
+
 if(JSON.parse(localStorage.getItem('userToken'))==true){
     loginButton.classList.add('d-none');
     welcomeUser.classList.remove('d-none');
@@ -51,7 +68,8 @@ document.addEventListener('click' , function(e){
 
 
 function checkDatabase(){
-    if(localStorage.getItem('storedUsers')==null){
+    var itemNumber = JSON.parse(localStorage.getItem('storedUsers'));
+    if(localStorage.getItem('storedUsers')==null || itemNumber.length ==0){
         alertBox.classList.add('d-block');
         alertBox.innerHTML = 'Wrong username and/or password!';      
     }
