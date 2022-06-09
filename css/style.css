@@ -212,8 +212,29 @@ body{
     height: 120px;
   }
 
+  .carousel-indicators{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start !important;
+      right: auto !important;
+      bottom: auto !important;
+      margin: 0 !important;
+      left: 15%;
+      top: 50%;
+      transform:translate(-50% , -50%);
+  }
 
+  .carousel-indicators button{
+      width: 250px !important;
+      height: 120px !important;
+  }
 
+  .bg-cover-test{
+      background-image: url(../images/kAVRgw7GgK1CfYEJq8ME6EvRIgU.jpg);
+      width: 100%;
+      background-position: center center;
+      background-size: cover;
+  }
 
 
 
