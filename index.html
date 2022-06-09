@@ -302,24 +302,21 @@
 
 
         <!-- Carousel Fade with left images -->
-        <section class="container h-100">
+        <section class="container mb-5">
+          <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+            <h3 class="text-white fs-4">Top Rated</h3>
+            <a href="#" class="text-theme text-decoration-none fs-6">See All</a>
+        </div>
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active bg-cover-test" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="0" class="active bg-cover-test BUTTONS" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="1" class="bg-cover-test1 BUTTONS" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="2" class="bg-cover-test2 BUTTONS" aria-label="Slide 3"></button>
+                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="3" class="bg-cover-test3 BUTTONS" aria-label="Slide 4"></button>
+                  <button type="button" data-bs-target="#carouselExampleFade" data-bs-slide-to="4" class="bg-cover-test4 BUTTONS" aria-label="Slide 5"></button>
                 </div>
-                <div class="carousel-inner w-100 h-100">
-                  <div class="carousel-item active">
-                    <img src="images/Carousel1.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Carousel2.jpg" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="images/Carousel3.jpg" class="d-block w-100" alt="...">
-                  </div>
+                <div class="carousel-inner w-100" id="carouselFaded">
+                  <!-- Content from javascript API -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -332,6 +329,17 @@
               </div>
         </section>
 
+
+        <!-- Display top 12 trendings in Tv shows -->
+        <section class="container my-5 pt-5">
+          <div class="w-100 d-flex justify-content-between align-items-center mb-3">
+            <h3 class="text-white fs-4">Top 12 Tv series</h3>
+            <a href="#" class="text-theme text-decoration-none fs-6">See All</a>
+        </div>
+          <div class="row gx-3 gy-4" id="tvTop12">
+            <!-- Add data from API -->
+          </div>
+        </section>
 
 
 
