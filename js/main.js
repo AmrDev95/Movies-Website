@@ -15,6 +15,7 @@ var trendingMoviesDay = document.getElementById('trendingMoviesDay');
 var carouselFaded = document.getElementById('carouselFaded');
 var carouselButtons = document.querySelectorAll('.BUTTONS');
 var tvTop12 = document.getElementById('tvTop12');
+var trendButtons = [];
 
 async function getTrending(category, timeFrame, page, callback){
     var x = await fetch(`https://api.themoviedb.org/3/trending/${category}/${timeFrame}?api_key=bf369bb0e503052f7e688dc460012ad0&page=${page}`);
@@ -60,10 +61,6 @@ getTrending('movie', 'day',1, displayFirst4);
 getTrending('tv', 'day',1, displayTV12);
 getTopRated();
 
-document.addEventListener('click', function(e){
-    console.log(e);
-})
-
 
 
 if(JSON.parse(localStorage.getItem('userToken'))==true){
@@ -78,11 +75,11 @@ if(JSON.parse(localStorage.getItem('userToken'))==true){
 loginButton.addEventListener('click' , function(e){
     if(e.target==loginButton || e.target==loginIcon){
         loginSection.style.display = 'flex';
-        console.log('welcome');
     }
 })
 
 document.addEventListener('click' , function(e){
+    displayCurrent = JSON.parse(localStorage.getItem('testShow'));
     if(e.target==closeLogin){
         loginSection.style.display = 'none';
     }
@@ -99,7 +96,13 @@ document.addEventListener('click' , function(e){
     if(e.target==signOut || e.target==signouticon){
         localStorage.setItem('userToken' , 'false');
         window.location.href = "index.html";
-        console.log(e);
+    }
+
+    for(var i=0 ; i<4 ; i++){
+        if(e.target==trendButtons[i]){
+          localStorage.setItem('selectedMovie' ,JSON.stringify(displayCurrent[i]));
+          window.location.href = "displaySelected.html";
+        }
     }
 })
 
@@ -144,7 +147,7 @@ function displayFirst4(myMovies){
                     <div class="text-white text-center">
                         <h3>${myMovies.results[i].original_title}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
-                        <button class="btn btn-danger bg-theme">More info</button>
+                        <button class="btn btn-danger bg-theme" id="moreTrending${i}0">More info</button>
                     </div>
         
                     <div class="mt-3 d-flex">
@@ -191,7 +194,7 @@ function displayFirst4(myMovies){
                     <div class="text-white text-center">
                         <h3>${myMovies.results[i].original_title}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
-                        <button class="btn btn-danger bg-theme">More info</button>
+                        <button class="btn btn-danger bg-theme" id="moreTrending${i}0">More info</button>
                     </div>
     
                     <div class="mt-3 d-flex">
@@ -229,10 +232,22 @@ function displayFirst4(myMovies){
             <img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">
         </div>
             `
-    
         }
     }
+
+    var newMovie =[];
+    for (var i=0; i<4; i++){
+        newMovie[i] ={
+            title: myMovies.results[i].original_title,
+            photo: `<img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">`,
+            about: myMovies.results[i].overview
+        }
+    }
+    localStorage.setItem('testShow', JSON.stringify(newMovie));
+    getTrendButtons();
 }
+
+
 
 function displayTV12(myMovies){
     for(var i =0; i<12; i++){
@@ -333,3 +348,11 @@ function displayTV12(myMovies){
         }
     }
 }
+
+function getTrendButtons(){
+    for(var i=0; i<4; i++){
+        trendButtons[i] = document.getElementById(`moreTrending${i}0`);
+    }
+}
+
+

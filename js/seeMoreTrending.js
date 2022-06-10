@@ -1,6 +1,7 @@
+var AllMovies =[];
 var allTrendings =[];
 var pagination = document.querySelectorAll('.displayPagination');
-
+var ALLTRENDBUTTONS=[];
 async function getAllTrendings(category, timeFrame){
     for(var i=1; i<=9; i++){
         var x = await fetch(`https://api.themoviedb.org/3/trending/${category}/${timeFrame}?api_key=bf369bb0e503052f7e688dc460012ad0&page=${i}`);
@@ -11,6 +12,22 @@ async function getAllTrendings(category, timeFrame){
 }
 
 getAllTrendings('movie', 'day');
+
+document.addEventListener('click' , function(e){
+    for(var i=1 ; i<=9 ; i++){
+        var Z = ALLTRENDBUTTONS[i-1];
+        var X = AllMovies[i-1];
+        for(var j=1; j<=20; j++){
+            if(e.target==Z[j-1]){
+                localStorage.setItem('selectedMovie' ,JSON.stringify(X[j-1]));
+                window.location.href = "displaySelected.html";
+              }
+        }
+    }
+})
+
+document.addEventListener('click', function(e){
+})
 
 
 function displayFunc(){
@@ -23,7 +40,7 @@ function displayFunc(){
                     <div class="text-white text-center">
                         <h3>${allTrendings[i-1].results[j-1].original_title}</h3>
                         <p class="adjust-overview">${allTrendings[i-1].results[j-1].overview}</p>
-                        <button class="btn btn-danger bg-theme">More info</button>
+                        <button class="btn btn-danger bg-theme" id="moreTrending${i-1}${j-1}">More info</button>
                     </div>
     
                     <div class="mt-3 d-flex">
@@ -59,9 +76,34 @@ function displayFunc(){
                 </div>
             </div>
             <img src="https://image.tmdb.org/t/p/w500${allTrendings[i-1].results[j-1].poster_path}" class="w-100" alt="Cover">
-        </div>
+            </div>
             `
         }
+    }
+    
+    for (var i=1; i<=9; i++){
+        var newMovie =[];
+        for(var j=1; j<=20; j++){
+            newMovie[j-1] ={
+                title: allTrendings[i-1].results[j-1].original_title,
+                photo: `<img src="https://image.tmdb.org/t/p/w500${allTrendings[i-1].results[j-1].poster_path}" class="w-100" alt="Cover">`,
+                about: allTrendings[i-1].results[j-1].overview
+            }
+        }
+        AllMovies.push(newMovie);
+        console.log(AllMovies);
+    }
+    localStorage.setItem('testShow', JSON.stringify(AllMovies));
+    getAllTrendButtons();
+}
+
+function getAllTrendButtons(){
+    for (var i=0; i<9; i++){
+        var Z =[];
+        for(var j=0; j<20; j++){
+            Z[j]=document.getElementById(`moreTrending${i}${j}`);
+        }
+        ALLTRENDBUTTONS.push(Z);
     }
 }
 
