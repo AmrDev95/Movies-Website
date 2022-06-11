@@ -16,6 +16,8 @@ var carouselFaded = document.getElementById('carouselFaded');
 var carouselButtons = document.querySelectorAll('.BUTTONS');
 var tvTop12 = document.getElementById('tvTop12');
 var trendButtons = [];
+var trendTvButtons =[];
+var topRatedButtons = [];
 
 async function getTrending(category, timeFrame, page, callback){
     var x = await fetch(`https://api.themoviedb.org/3/trending/${category}/${timeFrame}?api_key=bf369bb0e503052f7e688dc460012ad0&page=${page}`);
@@ -55,6 +57,20 @@ async function getTopRated(){
             `
         }
     }
+
+    var topRated =[];
+    for (var i=0; i<5; i++){
+        topRated[i] ={
+            title: Top.results[i].original_title,
+            photo: `<img src="https://image.tmdb.org/t/p/w500${Top.results[i].poster_path}" class="d-block w-100 carouselImg"  alt="...">`,
+            about: Top.results[i].overview,
+            adultContent: Top.results[i].adult,
+            voting: Top.results[i].vote_average,
+            releaseDate: Top.results[i].release_date
+        }
+    }
+    localStorage.setItem('topRated', JSON.stringify(topRated));
+    getTopRatedButtons();
 }
 
 getTrending('movie', 'day',1, displayFirst4);
@@ -79,7 +95,9 @@ loginButton.addEventListener('click' , function(e){
 })
 
 document.addEventListener('click' , function(e){
-    displayCurrent = JSON.parse(localStorage.getItem('testShow'));
+    var displayCurrent = JSON.parse(localStorage.getItem('testShow'));
+    var top12TV = JSON.parse(localStorage.getItem('top12TV'));
+    var topRated = JSON.parse(localStorage.getItem('topRated'));
     if(e.target==closeLogin){
         loginSection.style.display = 'none';
     }
@@ -102,6 +120,20 @@ document.addEventListener('click' , function(e){
         if(e.target==trendButtons[i]){
           localStorage.setItem('selectedMovie' ,JSON.stringify(displayCurrent[i]));
           window.location.href = "displaySelected.html";
+        }
+    }
+
+    for(var i=0; i<12; i++){
+        if(e.target==trendTvButtons[i]){
+            localStorage.setItem('selectedMovie' ,JSON.stringify(top12TV[i]));
+            window.location.href = "displaySelected.html"; 
+        }
+    }
+
+    for(var i=0; i<5; i++){
+        if(e.target==topRatedButtons[i]){
+            localStorage.setItem('selectedMovie' ,JSON.stringify(topRated[i]));
+            window.location.href = "displaySelected.html"; 
         }
     }
 })
@@ -240,7 +272,10 @@ function displayFirst4(myMovies){
         newMovie[i] ={
             title: myMovies.results[i].original_title,
             photo: `<img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">`,
-            about: myMovies.results[i].overview
+            about: myMovies.results[i].overview,
+            adultContent: myMovies.results[i].adult,
+            voting: myMovies.results[i].vote_average,
+            releaseDate: myMovies.results[i].release_date
         }
     }
     localStorage.setItem('testShow', JSON.stringify(newMovie));
@@ -259,7 +294,7 @@ function displayTV12(myMovies){
                     <div class="text-white text-center">
                         <h3>${myMovies.results[i].original_title}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
-                        <button class="btn btn-danger bg-theme">More info</button>
+                        <button class="btn btn-danger bg-theme" id="tvInfoButton${i}">More info</button>
                     </div>
     
                     <div class="mt-3 d-flex">
@@ -307,7 +342,7 @@ function displayTV12(myMovies){
                     <div class="text-white text-center">
                         <h3>${myMovies.results[i].original_title}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
-                        <button class="btn btn-danger bg-theme">More info</button>
+                        <button class="btn btn-danger bg-theme" id="tvInfoButton${i}">More info</button>
                     </div>
     
                     <div class="mt-3 d-flex">
@@ -347,11 +382,37 @@ function displayTV12(myMovies){
             `
         }
     }
+
+    var topTv12 =[];
+    for (var i=0; i<12; i++){
+        topTv12[i] ={
+            title: myMovies.results[i].original_name,
+            photo: `<img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">`,
+            about: myMovies.results[i].overview,
+            adultContent: '',
+            voting: myMovies.results[i].vote_average,
+            releaseDate: myMovies.results[i].first_air_date
+        }
+    }
+    localStorage.setItem('top12TV', JSON.stringify(topTv12));
+    getTvButtons();
 }
 
 function getTrendButtons(){
     for(var i=0; i<4; i++){
         trendButtons[i] = document.getElementById(`moreTrending${i}0`);
+    }
+}
+
+function getTvButtons(){
+    for(var i=0; i<12; i++){
+        trendTvButtons[i] = document.getElementById(`tvInfoButton${i}`);
+    }  
+}
+
+function getTopRatedButtons(){
+    for(var i=0; i<5; i++){
+        topRatedButtons[i]=document.getElementById(`topMoviesButton${[i]}`);
     }
 }
 
