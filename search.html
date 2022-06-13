@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search page</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/editAccount.css">
+</head>
+<body>
+    
+    <nav class="navbar container-fluid navbar-expand-lg navbar-dark bg-black bg-blur p-4" id="navBar">
+        <div class="container">
+          <img src="images/logo.png" class="logo" alt="">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Shop</a>
+              </li>
+              <li class="nav-item dropdown d-none" id="accountSettings">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account Settings
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="editAccount.html">Edit Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Check my list</a></li>
+                </ul>
+              </li>
+            </ul>
+
+                
+            <div class="d-flex align-items-center">
+                <button class=" ms-auto me-4 btn btn-danger bg-transparent border-0 text-white" id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="btn btn-danger bg-transparent mx-2 border-0 text-white" id="loginButton"><i class="fa-solid fa-user" id="loginIcon"></i></button>
+            </div>
+            <p class="my-auto text-white d-none" id="welcomeUser"></p>
+            <button class="btn bg-transparent text-white my-auto ms-2 d-none" id="signOut"><i class="fa-solid fa-arrow-right-from-bracket" id="signouticon"></i></button>
+          </div>
+        </div>
+      </nav>
+
+              <!-- Adding Login/signup section -->
+              <section id="loginSection">
+                <div class="w-50 bg-white p-4 rounded-3 position-relative login-form">
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label">Email address</label>
+                          <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
+                          <div class="alert alert-danger mt-3" role="alert"></div>
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label">Password</label>
+                          <input type="password" class="form-control" id="inputPassword">
+                        </div>
+                        <div class="mb-3 form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Keep me logged in</label>
+                        </div>
+                        <!-- Add Alert -->
+                        <div class="alert alert-danger" role="alert" id="alertBox">
+    
+                          </div>
+    
+                        <div class="d-flex w-50">
+                            <button class="btn btn-danger" id="signInButton">Login</button>
+                            <button class="btn btn-danger ms-2" id="signupButton">Signup</button>
+                        </div>
+                        <i class="fa-solid fa-xmark p-4 position-absolute" id="closeLogin"></i>
+                </div>
+            </section>
+
+    <header class="w-100 h-50 edit-profile-home"></header>
+
+    <section class="w-50 mx-auto mt-5">
+        <h3>Sort by: </h3>
+        <div class="input-group flex-nowrap mt-3">
+            <span class="input-group-text" id="addon-wrapping"><i class="fa-solid fa-magnifying-glass"></i></span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="addon-wrapping">
+          </div>
+    </section>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
