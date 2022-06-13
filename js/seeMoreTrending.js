@@ -86,8 +86,11 @@ function displayFunc(){
         for(var j=1; j<=20; j++){
             newMovie[j-1] ={
                 title: allTrendings[i-1].results[j-1].original_title,
-                photo: `<img src="https://image.tmdb.org/t/p/w500${allTrendings[i-1].results[j-1].poster_path}" class="w-100" alt="Cover">`,
-                about: allTrendings[i-1].results[j-1].overview
+                photo: `https://image.tmdb.org/t/p/w500${allTrendings[i-1].results[j-1].poster_path}`,
+                about: allTrendings[i-1].results[j-1].overview,
+                adultContent: allTrendings[i-1].results[j-1].adult,
+                voting: allTrendings[i-1].results[j-1].vote_average,
+                releaseDate: allTrendings[i-1].results[j-1].release_date
             }
         }
         AllMovies.push(newMovie);
@@ -114,3 +117,4 @@ function getAllTrendButtons(){
 
 
 
+''

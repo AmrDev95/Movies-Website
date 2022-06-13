@@ -87,13 +87,36 @@
     <h2 class="no-login text-center my-5 d-none text-black" id="noLogin">You have to login first</h2>
 
 
-    <section class="container h-100 bg-danger mt-5">
-        <h2 class="my-2">Title</h2>
+    <section class="container pb-3 bg-light my-5">
+        <h2 class="my-2 text-center text-md-start" id="movieTitle"></h2>
 
-        <div class="container-fluid h-50 bg-black"></div>
+        <div class="container-fluid mt-3">
+          <div class="row gy-5">
+            <div class="col-md-6 d-md-block d-flex justify-content-center">
+              <img src="" alt="" class="w-75 mx-auto" id="movieCover">
+            </div>
+
+            <div class="col-md-6">
+              <h4>About this movie</h4>
+              <p id="aboutInfo"></p>
+              <h4>Release Date</h4>
+              <p id="releaseDate"></p>
+              <h4>Adult Content</h4>
+              <p id="adultContent"></p>
+              <h4 class="mb-3">Rating by viewers</h4>
+              <svg version="1.1" width="100" class="circle-progress d-block mb-1">
+                <circle class="circle-progress-circle" cx="50" cy="50" r="47" fill="none" stroke="#ddd" stroke-width="8"></circle>
+                <path d="M 50 3 A 47 47 0 1 1 11.976201264377472 77.62590685774624" class="circle-progress-value" fill="none" stroke="#00E699" stroke-width="8"></path>
+                <text class="circle-progress-text" x="50" y="50" font="16px Arial, sans-serif" text-anchor="middle" fill="#999" dy="0.4em" id="userRating">90%</text>
+              </svg>
+              <button class="btn btn-danger bg-theme">Watch now </button>
+            </div>
+          </div>
+        </div>
     </section>
 
     <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/displaySelected.js"></script>
 </body>

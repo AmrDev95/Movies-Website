@@ -6,6 +6,10 @@ body{
     --theme-color:rgb(229,9,20);
 }
 
+.w-35{
+    width:35% !important;
+}
+
 .text-theme{
     color: var(--theme-color) !important;
 }
@@ -279,6 +283,25 @@ body{
     flex-direction: column;
     justify-content: center;
 
+}
+
+
+.circle-progress-value {
+	stroke-width: 6px;
+	stroke: green;
+}
+.circle-progress-circle {
+	stroke-width: 6px;
+	stroke: gray;
+}
+.circle-progress-text {
+	fill: green;
+}
+
+.special-offer{
+    background-image: url(../images/deadpool-cover.jpg);
+    background-size: cover;
+    background-position: center center;
 }
 
 

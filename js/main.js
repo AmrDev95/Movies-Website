@@ -62,7 +62,7 @@ async function getTopRated(){
     for (var i=0; i<5; i++){
         topRated[i] ={
             title: Top.results[i].original_title,
-            photo: `<img src="https://image.tmdb.org/t/p/w500${Top.results[i].poster_path}" class="d-block w-100 carouselImg"  alt="...">`,
+            photo: `https://image.tmdb.org/t/p/w500${Top.results[i].poster_path}`,
             about: Top.results[i].overview,
             adultContent: Top.results[i].adult,
             voting: Top.results[i].vote_average,
@@ -76,6 +76,7 @@ async function getTopRated(){
 getTrending('movie', 'day',1, displayFirst4);
 getTrending('tv', 'day',1, displayTV12);
 getTopRated();
+getTrending('movie', 'week',1, displayPopular);
 
 
 
@@ -271,12 +272,13 @@ function displayFirst4(myMovies){
     for (var i=0; i<4; i++){
         newMovie[i] ={
             title: myMovies.results[i].original_title,
-            photo: `<img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">`,
+            photo: `https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}"`,
             about: myMovies.results[i].overview,
             adultContent: myMovies.results[i].adult,
             voting: myMovies.results[i].vote_average,
             releaseDate: myMovies.results[i].release_date
         }
+        newMovie[i].photo = newMovie[i].photo.slice(0,-1);
     }
     localStorage.setItem('testShow', JSON.stringify(newMovie));
     getTrendButtons();
@@ -292,7 +294,7 @@ function displayTV12(myMovies){
             <div class="effect-dark d-flex flex-column justify-content-center">
                 <div class="container d-flex flex-column gap-2 align-items-center">
                     <div class="text-white text-center">
-                        <h3>${myMovies.results[i].original_title}</h3>
+                        <h3>${myMovies.results[i].original_name}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
                         <button class="btn btn-danger bg-theme" id="tvInfoButton${i}">More info</button>
                     </div>
@@ -340,7 +342,7 @@ function displayTV12(myMovies){
             <div class="effect-dark d-flex flex-column justify-content-center">
                 <div class="container d-flex flex-column gap-2 align-items-center">
                     <div class="text-white text-center">
-                        <h3>${myMovies.results[i].original_title}</h3>
+                        <h3>${myMovies.results[i].original_name}</h3>
                         <p class="adjust-overview">${myMovies.results[i].overview}</p>
                         <button class="btn btn-danger bg-theme" id="tvInfoButton${i}">More info</button>
                     </div>
@@ -387,7 +389,7 @@ function displayTV12(myMovies){
     for (var i=0; i<12; i++){
         topTv12[i] ={
             title: myMovies.results[i].original_name,
-            photo: `<img src="https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}" class="w-100" alt="Cover">`,
+            photo: `https://image.tmdb.org/t/p/w500${myMovies.results[i].poster_path}`,
             about: myMovies.results[i].overview,
             adultContent: '',
             voting: myMovies.results[i].vote_average,
@@ -396,6 +398,10 @@ function displayTV12(myMovies){
     }
     localStorage.setItem('top12TV', JSON.stringify(topTv12));
     getTvButtons();
+}
+
+function displayPopular(myMovies){
+
 }
 
 function getTrendButtons(){
